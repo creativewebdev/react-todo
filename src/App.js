@@ -5,7 +5,7 @@ import TodoList from './components/TodoComponents/TodoList.js';
 const todo =  [
   {
     task: 'Laundry',
-    id: 123456789
+    id: Date.now()
   
   }
 ];
@@ -22,7 +22,7 @@ class App extends React.Component {
   addItems = event => {
     event.preventDefault();
 
-    const newTodo = {job: this.state.todo, id: Date.now() };
+    const newTodo = {task: this.state.todo, id: Date.now() };
 
     this.setState({
       items: [...this.state.items, newTodo],
@@ -37,8 +37,6 @@ class App extends React.Component {
     return (
       <div>
         <h1>What do you need To Do?</h1>
-      
-        
         
         <TodoForm           
               value={this.state.todo}

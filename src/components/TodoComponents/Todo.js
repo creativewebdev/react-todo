@@ -3,11 +3,11 @@ import React from 'react'
 const Todo = props => {
     return(
 <div>
-    {props.todo.items.job}
+    {props.todo}
 </div>
     );
 };
 
 
 
-export default 'Todo'
+export default Todo
