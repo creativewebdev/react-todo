@@ -20,12 +20,16 @@ const divStyle = {
      
 };
 
+
 const headingStyle = {
   fontSize: '45px',
   margin: '10px'
 }
 
 const todo =  [];
+
+
+
 class App extends React.Component {
   constructor(){
     super();
@@ -35,7 +39,10 @@ class App extends React.Component {
     
       todo: ''
     };
+    
 };
+
+
 
   addItems = event => {
     event.preventDefault();
@@ -81,6 +88,7 @@ class App extends React.Component {
       <div style={divStyle}>
         <h2 style={headingStyle}>It's {moment().format('MMMM Do')}</h2>
         <h1 style={headingStyle}>What Do You Need To Get Done Today?</h1>
+        <p>Click On the Item to Mark it Complete</p>
         
         <TodoForm  
                      

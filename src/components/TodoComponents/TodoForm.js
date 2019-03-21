@@ -51,7 +51,7 @@ return (
         type="text"
         name="todo"
         value={props.value}
-        placeholder="need to do?"/>
+        placeholder= "...to do"/>
 
 
         <button style={buttonStyle} onClick ={props.handleAddItems}>Add to List</button>
