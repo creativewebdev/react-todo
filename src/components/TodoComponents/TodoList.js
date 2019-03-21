@@ -2,12 +2,16 @@
 import React from 'react'
 import Todo from './Todo.js'
 
+const styleTodo = {
+    fontSize: '30px'
+}
 
 const TodoList = props => {
     return (
-      <div>
+      <div style={styleTodo}>
         {props.items.map(todo => (
-          <Todo
+          <Todo style={styleTodo}
+            handleToggleComplete={props.handleToggleComplete}
             key={todo.id}
             todo={todo.task}
           />
