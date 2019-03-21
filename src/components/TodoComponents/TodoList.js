@@ -7,13 +7,17 @@ const styleTodo = {
 }
 
 const TodoList = props => {
+    console.log(props)
+    console.log(props.items)
     return (
       <div style={styleTodo}>
         {props.items.map(todo => (
           <Todo style={styleTodo}
-            handleToggleComplete={props.handleToggleComplete}
+            handleComplete={props.handleComplete}
             key={todo.id}
             todo={todo.task}
+            todoId={todo.id}
+            todoCompleted={todo.completed}
           />
         ))}
       </div>

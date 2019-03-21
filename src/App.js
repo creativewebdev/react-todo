@@ -1,7 +1,8 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm.js';
 import TodoList from './components/TodoComponents/TodoList.js';
-import { deflateRawSync } from 'zlib';
+import moment from 'moment';
+
 
 const divStyle = {
       boxSizing: 'border-box',
@@ -10,17 +11,18 @@ const divStyle = {
       backgroundRepeat: 'no-repeat',
       height: '100vh',
       paddingTop:'70px',
-      fontFamily: 'Cantarell', 
+      fontFamily: 'ZCOOL XiaoWei', 
       color: 'white',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      
-  
+      textShadow: '0px 1.5px 0px black',
+     
 };
 
 const headingStyle = {
-  fontSize: '45px'
+  fontSize: '45px',
+  margin: '10px'
 }
 
 const todo =  [];
@@ -30,6 +32,7 @@ class App extends React.Component {
   
     this.state = {
       items: todo,
+    
       todo: ''
     };
 };
@@ -48,42 +51,52 @@ class App extends React.Component {
   changeTodo = event => this.setState(
     { [event.target.name]: event.target.value});
 
-    toggleTodoComplete = id => {
-      let items = this.state.items.slice();
-      items = items.map(todo => {
-        if (todo.id === id) {
-          todo.completed = !todo.completed;
-          return todo;
-        } else {
-          return todo;
+    
+    toggleComplete = todoId => {
+      console.log(todo.id)
+      const newItems = this.state.items.map(todo => {
+        if (todo.id === todoId) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
         }
+        return todo;
       });
-      this.setState({ items });
-    };
-  
+    
+      this.setState({items: newItems });
+    }
+
+
+
     clearCompletedTodos = event => {
       event.preventDefault();
       let items = this.state.items.filter(todo => !todo.completed);
       this.setState({ items });
     };
 
+
   render() {
     return (
       <div style={divStyle}>
+        <h2 style={headingStyle}>It's {moment().format('MMMM Do')}</h2>
         <h1 style={headingStyle}>What Do You Need To Get Done Today?</h1>
         
-        <TodoForm          
+        <TodoForm  
+                     
               value={this.state.todo}
               handleTodoChange={this.changeTodo}
               handleAddItems={this.addItems}
               handleClearTodos={this.clearCompletedTodos}
             />
 
-        <TodoList items={this.state.items} handleToggleComplete={this.toggleTodoComplete} />
+        <TodoList items={this.state.items} handleComplete={this.toggleComplete} />
         
       </div>
     );
   }
 };
+
+
 
 export default App;
