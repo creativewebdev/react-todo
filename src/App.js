@@ -6,7 +6,7 @@ import moment from 'moment';
 
 const divStyle = {
       boxSizing: 'border-box',
-      backgroundImage: "url('https://cdn.pixabay.com/photo/2017/05/02/14/35/landscape-2278315_1280.jpg')", backgroundPosition: 'center',
+      backgroundImage: "url('./safe_image.jpg')", backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       height: '100vh',
@@ -28,7 +28,7 @@ const headingStyle = {
 
 const todo =  [];
 
-
+           
 
 class App extends React.Component {
   constructor(){
