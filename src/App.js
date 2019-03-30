@@ -6,7 +6,8 @@ import moment from 'moment';
 
 const divStyle = {
       boxSizing: 'border-box',
-      backgroundImage: "url('./safe_image.jpg')", backgroundPosition: 'center',
+      backgroundImage: "url('./landscape-2278315_1280.jpg')", backgroundPosition: 'center',
+      
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       height: '100vh',
